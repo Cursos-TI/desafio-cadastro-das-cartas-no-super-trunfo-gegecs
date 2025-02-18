@@ -54,7 +54,7 @@ int main() {
     scanf("%f", &pib1);
 
     printf("Digite a quantidade de pontos turísticos:\n");
-    scanf("%d", &pontosTuristicos1);
+    scanf(" %d", &pontosTuristicos1);
     
     //pibCapita recebendo o valor da divisão entre o pib e a população que o usuário digitou
     pibCapita1 = pib1 / populacao1;
@@ -113,7 +113,7 @@ int main() {
     scanf("%f", &pib2);
 
     printf("Digite a quantidade de pontos turísticos:\n");
-    scanf("%d", &pontosTuristicos2);
+    scanf(" %d", &pontosTuristicos2);
     
     //pibCapita recebendo o valor da divisão entre o pib e a população que o usuário digitou
     pibCapita2 = pib2 / populacao2;
@@ -145,14 +145,56 @@ int main() {
     // Mensagem apresentado a quantidade do super poder.
     printf("Valor do SuperPoder: %.2f\n", super2);
 
-    printf("\n*** Comparação entre as Cartas ***\nvalor 1 para a carta que ganhou e valor 0 para carta que perdeu\n");
-    printf("\nPopulação: Carta %c%s com %d: %d  Carta %c%s com %d: %d\n", estado1, codigo1, populacao1, populacao1 > populacao2, estado2, codigo2, populacao2, populacao1 < populacao2);
-    printf("Área: Carta %c%s com %.1f: %d  Carta %c%s com %.1f: %d\n", estado1, codigo1, area1, area1 > area2, estado2, codigo2, area2, area1 < area2);
-    printf("Densidade: Carta %c%s com %.1f: %d  Carta %c%s com %.1f: %d\n", estado1, codigo1, densidade1, densidade1 < densidade2, estado2, codigo2, densidade2, densidade1 > densidade2);
-    printf("PIB: Carta %c%s com %.1f: %d  Carta %c%s com %.1f: %d\n", estado1, codigo1, pib1, pib1 > pib2, estado2, codigo2, pib2, pib1 < pib2);
-    printf("PIB per capita: Carta %c%s com %.1f: %d  Carta %c%s com %.1f: %d\n", estado1, codigo1, pibCapita1, pibCapita1 > pibCapita2, estado2, codigo2, pibCapita2, pibCapita1 < pibCapita2);
-    printf("Número de pontos turísticos: Carta %c%s com %d: %d  Carta %c%s com %d: %d\n", estado1, codigo1, pontosTuristicos1, pontosTuristicos1 > pontosTuristicos2, estado2, codigo2, pontosTuristicos2, pontosTuristicos1 < pontosTuristicos2);
-    printf("Valor do SuperPoder: Carta %c%s com %.2f: %d  Carta %c%s com %.2f: %d\n", estado1, codigo1, super1, super1 > super2, estado2, codigo2, super2, super1 < super2);
+    printf("\n*** Comparação entre as Cartas ***\n");
+
+    printf("\nPopulação: Carta 1 com %d e Carta 2 com %d: \n", populacao1, populacao2);
+    if (populacao1 > populacao2) {
+        printf("Carta %c%s ganhou!\n", estado1, codigo1);
+    } else {
+        printf("Carta %c%s ganhou!\n", estado2, codigo2);
+    }
+    
+    printf("\nÁrea: Carta 1 com %.1f e Carta 2 com %.1f: \n", estado1, codigo1, area1, estado2, codigo2, area2);
+    if (area1 > area2) {
+        printf("Carta %c%s ganhou!\n", estado1, codigo1);
+    } else {
+        printf("Carta %c%s ganhou!\n", estado2, codigo2);
+    }
+
+    printf("\nDensidade: Carta 1 com %.1f e Carta 2 com %.1f: \n", estado1, codigo1, densidade1, estado2, codigo2, densidade2);
+    if (densidade1 < densidade2) {
+        printf("Carta %c%s ganhou!\n", estado1, codigo1);
+    } else {
+        printf("Carta %c%s ganhou!\n", estado2, codigo2);
+    }
+
+    printf("\nPIB: Carta 1 com %.1f e Carta 2 com %.1f: \n", estado1, codigo1, pib1, estado2, codigo2, pib2);
+    if (pib1 > pib2) {
+        printf("Carta %c%s ganhou!\n", estado1, codigo1);
+    } else {
+        printf("Carta %c%s ganhou!\n", estado2, codigo2);
+    }
+
+    printf("\nPIB per capita: Carta 1 com %.1f e Carta 2 com %.1f: \n", estado1, codigo1, pibCapita1, estado2, codigo2, pibCapita2);
+    if (pibCapita1 > pibCapita2) {
+        printf("Carta %c%s ganhou!\n", estado1, codigo1);
+    } else {
+        printf("Carta %c%s ganhou!\n", estado2, codigo2);
+    }
+
+    printf("\nNúmero de pontos turísticos: Carta 1 com %d e Carta 2 com %d: \n", estado1, codigo1, pontosTuristicos1, estado2, codigo2, pontosTuristicos2);
+    if (pontosTuristicos1 > pontosTuristicos2) {
+        printf("Carta %c%s ganhou!\n", estado1, codigo1);
+    } else {
+        printf("Carta %c%s ganhou!\n", estado2, codigo2);
+    }
+
+    printf("\nValor do SuperPoder: Carta 1 com %.2f e Carta 2 com %.2f: \n", estado1, codigo1, super1, estado2, codigo2, super2);
+    if (super1 > super2) {
+        printf("Carta %c%s ganhou!\n", estado1, codigo1);
+    } else {
+        printf("Carta %c%s ganhou!\n", estado2, codigo2);
+    }
 
     return 0;
 }
