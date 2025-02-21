@@ -1090,6 +1090,5 @@ int main() {
             printf("Opção Inválida!\n");
             break;
     }
-
     return 0;
 }
