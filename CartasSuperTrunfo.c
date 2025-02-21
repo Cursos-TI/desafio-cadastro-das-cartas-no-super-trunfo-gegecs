@@ -1,22 +1,22 @@
 #include <stdio.h>
 
 int main() {
-    int escolha;
+    int escolha1, escolha2;
 
-    int populacao1, pontosTuristicos1;
-    float area1, pib1, pibCapita1, densidade1, super1;
-    char estado1;
-    char codigo1[20];
-    char cidade1[50];
+    int populacao1 = 10000, pontosTuristicos1 = 15;
+    float area1 = 330, pib1 = 20000000, pibCapita1, densidade1, super1, resultado1;
+    char estado1 = 'R';
+    char codigo1[20] = "01";
+    char cidade1[50] = "São Pedro";
 
-    int populacao2, pontosTuristicos2;
-    float area2, pib2, pibCapita2, densidade2, super2;
-    char estado2;
-    char codigo2[20];
-    char cidade2[50];
+    int populacao2 = 20000, pontosTuristicos2 = 8;
+    float area2 = 220, pib2 = 15000000, pibCapita2, densidade2, super2, resultado2;
+    char estado2 = 'O';
+    char codigo2[20] = "01";
+    char cidade2[50] = "Toronto";
 
     printf("Iniciaremos o cadastro da sua Primeira Carta!\n");
-
+    /*
     printf("Digite a inicial do estado:\n");
     scanf("%c", &estado1);
     printf("Digite o código da cidade:\n");
@@ -31,6 +31,7 @@ int main() {
     scanf("%f", &pib1);
     printf("Digite a quantidade de pontos turísticos:\n");
     scanf(" %d", &pontosTuristicos1);
+    */
     
     pibCapita1 = pib1 / populacao1;
     densidade1 = populacao1 / area1;
@@ -48,6 +49,7 @@ int main() {
     printf("Número de pontos turísticos: %d\n", pontosTuristicos1);
     printf("Valor do SuperPoder: %.2f\n", super1);
 
+    /*
     printf("\nIniciaremos o cadastro da sua Segunda Carta!\n");
     printf("Digite a inicial do estado:\n");
     scanf(" %c", &estado2);
@@ -63,7 +65,7 @@ int main() {
     scanf("%f", &pib2);
     printf("Digite a quantidade de pontos turísticos:\n");
     scanf(" %d", &pontosTuristicos2);
-    
+    */
     pibCapita2 = pib2 / populacao2;
     densidade2 = populacao2 / area2;
     super2 = populacao2 + area2 + densidade2 + pib2 + pibCapita2 + pontosTuristicos2;
@@ -83,10 +85,10 @@ int main() {
     printf("\n*** Comparação entre as Cartas ***\n");
     printf("[1] População\n[2] Área\n[3] Densidade demográfica\n[4] PIB\n[5] PIB per capta\n[6] Número de pontos turísticos\n[7] Super Trunco\n");
     printf("\nEscolha um atributo: ");
-    scanf(" %d", &escolha);
+    scanf(" %d", &escolha1);
 
-    switch(escolha) {
-        case 1:
+    switch(escolha1) {
+        case 1:    
             printf("População - Primeira Carta: %d - Segunda Carta: %d\n", populacao1, populacao2);
             if(populacao1 > populacao2) {
                 printf("A primeira carta ganhou!\n");
@@ -95,6 +97,136 @@ int main() {
             } else {
                 printf("Empate!\n");
             }
+            printf("\n[1] Área\n[2] Densidade demográfica\n[3] PIB\n[4] PIB per capta\n[5] Número de pontos turísticos\n[6] Super Trunco\n");
+            printf("Escolha um outro atributo: ");
+            scanf(" %d", &escolha2);
+            switch (escolha2) {
+                case 1:
+                    printf("\nÁrea - Primeira Carta: %.1f - Segunda Carta: %.1f\n", area1, area2);
+                    if(area1 > area2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(area1 < area2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = populacao1 + area1;
+                    resultado2 = populacao2 + area2;
+                    printf("\nAtributos escolhidos: População - Área\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 2:    
+                    printf("Densidade demográfica - Primeira Carta: %f - Segunda Carta: %f\n", densidade1, densidade2);
+                    if(densidade1 < densidade2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(densidade1 > densidade2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = populacao1 + densidade1;
+                    resultado2 = populacao2 + densidade2;
+                    printf("\nAtributos escolhidos: População - Densidade demográfica\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }                
+                case 3:
+                    printf("PIB - Primeira Carta: %f - Segunda Carta: %f\n", pib1, pib2);
+                    if(pib1 > pib2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(pib1 < pib2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = populacao1 + pib1;
+                    resultado2 = populacao2 + pib2;
+                    printf("\nAtributos escolhidos: População - PIB\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 4:
+                    printf("PIB per capta - Primeira Carta: %f - Segunda Carta: %f\n", pibCapita1, pibCapita2);
+                    if(pibCapita1 > pibCapita2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(pibCapita1 < pibCapita1) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = populacao1 + pibCapita1;
+                    resultado2 = populacao2 + pibCapita2;
+                    printf("\nAtributos escolhidos: População - PIB per capita\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 5:
+                    printf("Número de pontos turísticos - Primeira Carta: %d - Segunda Carta: %d\n", pontosTuristicos1, pontosTuristicos2);
+                    if(pontosTuristicos1 > pontosTuristicos2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(pontosTuristicos1 < pontosTuristicos2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = populacao1 + pontosTuristicos1;
+                    resultado2 = populacao2 + pontosTuristicos2;
+                    printf("\nAtributos escolhidos: População - Número de pontos turísticos \n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 6:
+                    printf("Super Trunco - Primeira Carta: %f - Segunda Carta: %f\n", super1, super2);
+                    if(super1 > super2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(super1 < super2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = populacao1 + super1;
+                    resultado2 = populacao2 + super2;
+                    printf("\nAtributos escolhidos: População - Super Trunco \n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+            }               
             break;
         case 2:
             printf("Área - Primeira Carta: %f - Segunda Carta: %f\n", area1, area2);
@@ -105,15 +237,281 @@ int main() {
             } else {
                 printf("Empate!\n");
             }
+            printf("\n[1] População\n[2] Densidade demográfica\n[3] PIB\n[4] PIB per capta\n[5] Número de pontos turísticos\n[6] Super Trunco\n");
+            printf("Escolha um outro atributo: ");
+            scanf(" %d", &escolha2);
+            switch (escolha2) {
+                case 1:
+                    printf("\nPopulação - Primeira Carta: %d - Segunda Carta: %d\n", populacao1, populacao2);
+                    if(populacao1 > populacao2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(populacao1 < populacao2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = populacao1 + area1;
+                    resultado2 = populacao2 + area2;
+                    printf("\nAtributos escolhidos: Área - População\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 2:    
+                    printf("Densidade demográfica - Primeira Carta: %f - Segunda Carta: %f\n", densidade1, densidade2);
+                    if(densidade1 < densidade2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(densidade1 > densidade2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = area1 + densidade1;
+                    resultado2 = area2 + densidade2;
+                    printf("\nAtributos escolhidos: Área - Densidade demográfica\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }                
+                case 3:
+                    printf("PIB - Primeira Carta: %f - Segunda Carta: %f\n", pib1, pib2);
+                    if(pib1 > pib2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(pib1 < pib2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = area1 + pib1;
+                    resultado2 = area2 + pib2;
+                    printf("\nAtributos escolhidos: Área - PIB\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 4:
+                    printf("PIB per capta - Primeira Carta: %f - Segunda Carta: %f\n", pibCapita1, pibCapita2);
+                    if(pibCapita1 > pibCapita2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(pibCapita1 < pibCapita1) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = area1 + pibCapita1;
+                    resultado2 = area2 + pibCapita2;
+                    printf("\nAtributos escolhidos: Área - PIB per capita\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 5:
+                    printf("Número de pontos turísticos - Primeira Carta: %d - Segunda Carta: %d\n", pontosTuristicos1, pontosTuristicos2);
+                    if(pontosTuristicos1 > pontosTuristicos2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(pontosTuristicos1 < pontosTuristicos2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = area1 + pontosTuristicos1;
+                    resultado2 = area2 + pontosTuristicos2;
+                    printf("\nAtributos escolhidos: Área - Número de pontos turísticos \n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 6:
+                    printf("Super Trunco - Primeira Carta: %f - Segunda Carta: %f\n", super1, super2);
+                    if(super1 > super2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(super1 < super2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = area1 + super1;
+                    resultado2 = area2 + super2;
+                    printf("\nAtributos escolhidos: Área - Super Trunco \n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                default:
+                    printf("Opção inválida\n");
+                    break;
+            }
             break;
         case 3:
             printf("Densidade demográfica - Primeira Carta: %f - Segunda Carta: %f\n", densidade1, densidade2);
-            if(densidade1 > densidade2) {
+            if(densidade1 < densidade2) {
                 printf("A primeira carta ganhou!\n");
-            } else if(densidade1 < densidade2) {
+            } else if(densidade1 > densidade2) {
                 printf("A segunda carta ganhou!\n");
             } else {
                 printf("Empate!\n");
+            }
+            printf("\n[1] População\n[2] Área\n[3] PIB\n[4] PIB per capta\n[5] Número de pontos turísticos\n[6] Super Trunco\n");
+            printf("Escolha um outro atributo: ");
+            scanf(" %d", &escolha2);
+            switch (escolha2) {
+                case 1:
+                    printf("\nPopulação - Primeira Carta: %d - Segunda Carta: %d\n", populacao1, populacao2);
+                    if(populacao1 > populacao2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(populacao1 < populacao2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = populacao1 + densidade1;
+                    resultado2 = populacao2 + densidade2;
+                    printf("\nAtributos escolhidos: Densidade demográfica - População\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 2:    
+                    printf("Área - Primeira Carta: %f - Segunda Carta: %f\n", area1, area2);
+                    if(area1 > area2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(area1 < area2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = area1 + densidade1;
+                    resultado2 = area2 + densidade2;
+                    printf("\nAtributos escolhidos: Densidade demográfica - Área\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }                
+                case 3:
+                    printf("PIB - Primeira Carta: %f - Segunda Carta: %f\n", pib1, pib2);
+                    if(pib1 > pib2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(pib1 < pib2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = densidade1 + pib1;
+                    resultado2 = densidade1 + pib2;
+                    printf("\nAtributos escolhidos: Densidade demográfica - PIB\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 4:
+                    printf("PIB per capta - Primeira Carta: %f - Segunda Carta: %f\n", pibCapita1, pibCapita2);
+                    if(pibCapita1 > pibCapita2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(pibCapita1 < pibCapita1) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = densidade1 + pibCapita1;
+                    resultado2 = densidade2+ pibCapita2;
+                    printf("\nAtributos escolhidos: Densidade demográfica - PIB per capita\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 5:
+                    printf("Número de pontos turísticos - Primeira Carta: %d - Segunda Carta: %d\n", pontosTuristicos1, pontosTuristicos2);
+                    if(pontosTuristicos1 > pontosTuristicos2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(pontosTuristicos1 < pontosTuristicos2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = densidade1 + pontosTuristicos1;
+                    resultado2 = densidade2 + pontosTuristicos2;
+                    printf("\nAtributos escolhidos: Densidade demográfica - Número de pontos turísticos \n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 6:
+                    printf("Super Trunco - Primeira Carta: %f - Segunda Carta: %f\n", super1, super2);
+                    if(super1 > super2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(super1 < super2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = densidade1 + super1;
+                    resultado2 = densidade2 + super2;
+                    printf("\nAtributos escolhidos: Densidade demográfica - Super Trunco \n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                default:
+                    printf("Opção inválida\n");
+                    break;
             }
             break;
         case 4:
@@ -125,15 +523,281 @@ int main() {
             } else {
                 printf("Empate!\n");
             }
+            printf("\n[1] População\n[2] Área\n[3] Densidade demográfica\n[4] PIB per capta\n[5] Número de pontos turísticos\n[6] Super Trunco\n");
+            printf("Escolha um outro atributo: ");
+            scanf(" %d", &escolha2);
+            switch (escolha2) {
+                case 1:
+                    printf("\nPopulação - Primeira Carta: %d - Segunda Carta: %d\n", populacao1, populacao2);
+                    if(populacao1 > populacao2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(populacao1 < populacao2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = populacao1 + pib1;
+                    resultado2 = populacao2 + pib2;
+                    printf("\nAtributos escolhidos: PIB - População\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 2:    
+                    printf("Área - Primeira Carta: %f - Segunda Carta: %f\n", area1, area2);
+                    if(area1 > area2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(area1 < area2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = area1 + pib1;
+                    resultado2 = area2 + pib2;
+                    printf("\nAtributos escolhidos: PIB - Área\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }                
+                case 3:
+                    printf("Densidade demográfica - Primeira Carta: %f - Segunda Carta: %f\n", densidade1, densidade2);
+                    if(densidade1 < densidade2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(densidade1 > densidade2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = densidade1 + pib1;
+                    resultado2 = densidade1 + pib2;
+                    printf("\nAtributos escolhidos: PIB - Densidade demográfica\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 4:
+                    printf("PIB - Primeira Carta: %f - Segunda Carta: %f\n", pib1, pib2);
+                    if(pib1 > pib2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(pibCapita1 < pibCapita1) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = pib1 + pibCapita1;
+                    resultado2 = pib2 + pibCapita2;
+                    printf("\nAtributos escolhidos: PIB - PIB per capita\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 5:
+                    printf("Número de pontos turísticos - Primeira Carta: %d - Segunda Carta: %d\n", pontosTuristicos1, pontosTuristicos2);
+                    if(pontosTuristicos1 > pontosTuristicos2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(pontosTuristicos1 < pontosTuristicos2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = pib1 + pontosTuristicos1;
+                    resultado2 = pib2 + pontosTuristicos2;
+                    printf("\nAtributos escolhidos: PIB - Número de pontos turísticos \n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 6:
+                    printf("Super Trunco - Primeira Carta: %f - Segunda Carta: %f\n", super1, super2);
+                    if(super1 > super2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(super1 < super2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = pib1 + super1;
+                    resultado2 = pib2 + super2;
+                    printf("\nAtributos escolhidos: PIB - Super Trunco \n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                default:
+                    printf("Opção inválida\n");
+                    break;
+            }
             break;
         case 5:
-            printf("PIB per capta - Primeira Carta: %f - Segunda Carta: %f\n", pibCapita1, pibCapita2);
+            printf("PIB per capita - Primeira Carta: %f - Segunda Carta: %f\n", pibCapita1, pibCapita2);
             if(pibCapita1 > pibCapita2) {
                 printf("A primeira carta ganhou!\n");
             } else if(pibCapita1 < pibCapita1) {
                 printf("A segunda carta ganhou!\n");
             } else {
                 printf("Empate!\n");
+            }
+            printf("\n[1] População\n[2] Área\n[3] Densidade demográfica\n[4] PIB\n[5] Número de pontos turísticos\n[6] Super Trunco\n");
+            printf("Escolha um outro atributo: ");
+            scanf(" %d", &escolha2);
+            switch (escolha2) {
+                case 1:
+                    printf("\nPopulação - Primeira Carta: %d - Segunda Carta: %d\n", populacao1, populacao2);
+                    if(populacao1 > populacao2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(populacao1 < populacao2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = populacao1 + pibCapita1;
+                    resultado2 = populacao2 + pibCapita2;
+                    printf("\nAtributos escolhidos: PIB per capita - População\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 2:    
+                    printf("Área - Primeira Carta: %f - Segunda Carta: %f\n", area1, area2);
+                    if(area1 > area2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(area1 < area2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = area1 + pibCapita1;
+                    resultado2 = area2 + pibCapita2;
+                    printf("\nAtributos escolhidos: PIB per capita - Área\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }                
+                case 3:
+                    printf("Densidade demográfica - Primeira Carta: %f - Segunda Carta: %f\n", densidade1, densidade2);
+                    if(densidade1 < densidade2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(densidade1 > densidade2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = densidade1 + pibCapita1;
+                    resultado2 = densidade1 + pibCapita2;
+                    printf("\nAtributos escolhidos: PIB per capita - Densidade demográfica\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 4:
+                    printf("PIB per capta - Primeira Carta: %f - Segunda Carta: %f\n", pibCapita1, pibCapita2);
+                    if(pibCapita1 > pibCapita2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(pibCapita1 < pibCapita1) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = pib1 + pibCapita1;
+                    resultado2 = pib2 + pibCapita2;
+                    printf("\nAtributos escolhidos: PIB - PIB per capita\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 5:
+                    printf("Número de pontos turísticos - Primeira Carta: %d - Segunda Carta: %d\n", pontosTuristicos1, pontosTuristicos2);
+                    if(pontosTuristicos1 > pontosTuristicos2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(pontosTuristicos1 < pontosTuristicos2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = pibCapita1 + pontosTuristicos1;
+                    resultado2 = pibCapita2 + pontosTuristicos2;
+                    printf("\nAtributos escolhidos: PIB per capita - Número de pontos turísticos \n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 6:
+                    printf("Super Trunco - Primeira Carta: %f - Segunda Carta: %f\n", super1, super2);
+                    if(super1 > super2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(super1 < super2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = pibCapita1 + super1;
+                    resultado2 = pibCapita2 + super2;
+                    printf("\nAtributos escolhidos: PIB per capita - Super Trunco \n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                default:
+                    printf("Opção inválida\n");
+                    break;
             }
             break;
         case 6:
@@ -145,6 +809,139 @@ int main() {
             } else {
                 printf("Empate!\n");
             }
+            printf("\n[1] População\n[2] Área\n[3] Densidade demográfica\n[4] PIB\n[5] PIB per capita\n[6] Super Trunco\n");
+            printf("Escolha um outro atributo: ");
+            scanf(" %d", &escolha2);
+            switch (escolha2) {
+                case 1:
+                    printf("\nPopulação - Primeira Carta: %d - Segunda Carta: %d\n", populacao1, populacao2);
+                    if(populacao1 > populacao2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(populacao1 < populacao2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = populacao1 + pontosTuristicos1;
+                    resultado2 = populacao2 + pontosTuristicos2;
+                    printf("\nAtributos escolhidos: Número de pontos turísticos - População\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 2:    
+                    printf("Área - Primeira Carta: %f - Segunda Carta: %f\n", area1, area2);
+                    if(area1 > area2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(area1 < area2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = area1 + pontosTuristicos1;
+                    resultado2 = area2 + pontosTuristicos2;
+                    printf("\nAtributos escolhidos: Número de pontos turísticos - Área\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }                
+                case 3:
+                    printf("Densidade demográfica - Primeira Carta: %f - Segunda Carta: %f\n", densidade1, densidade2);
+                    if(densidade1 < densidade2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(densidade1 > densidade2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = densidade1 + pontosTuristicos1;
+                    resultado2 = densidade1 + pontosTuristicos2;
+                    printf("\nAtributos escolhidos: Número de pontos turísticos - Densidade demográfica\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 4:
+                    printf("PIB - Primeira Carta: %f - Segunda Carta: %f\n", pib1, pib2);
+                    if(pib1 > pib2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(pib1 < pib1) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = pontosTuristicos1 + pib1;
+                    resultado2 = pontosTuristicos2 + pib2;
+                    printf("\nAtributos escolhidos: Número de pontos turísticos - PIB\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 5:
+                    printf("PIB per capita - Primeira Carta: %f - Segunda Carta: %f\n", pibCapita1, pibCapita2);
+                    if(pibCapita1 > pibCapita2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(pibCapita1 < pibCapita2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = pibCapita1 + pontosTuristicos1;
+                    resultado2 = pibCapita2 + pontosTuristicos2;
+                    printf("\nAtributos escolhidos: Número de pontos turísticos - PIB per capita \n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 6:
+                    printf("Super Trunco - Primeira Carta: %f - Segunda Carta: %f\n", super1, super2);
+                    if(super1 > super2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(super1 < super2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = pontosTuristicos1 + super1;
+                    resultado2 = pontosTuristicos2 + super2;
+                    printf("\nAtributos escolhidos: Número de pontos turísticos - Super Trunco \n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                default:
+                    printf("Opção inválida\n");
+                    break;
+            }
             break;
         case 7:
             printf("Super Trunco - Primeira Carta: %f - Segunda Carta: %f\n", super1, super2);
@@ -154,6 +951,139 @@ int main() {
                 printf("A segunda carta ganhou!\n");
             } else {
                 printf("Empate!\n");
+            }
+            printf("\n[1] População\n[2] Área\n[3] Densidade demográfica\n[4] PIB\n[5] PIB per capita\n[6] Número de pontos turísticos\n");
+            printf("Escolha um outro atributo: ");
+            scanf(" %d", &escolha2);
+            switch (escolha2) {
+                case 1:
+                    printf("\nPopulação - Primeira Carta: %d - Segunda Carta: %d\n", populacao1, populacao2);
+                    if(populacao1 > populacao2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(populacao1 < populacao2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = populacao1 + super1;
+                    resultado2 = populacao2 + super2;
+                    printf("\nAtributos escolhidos: Super Trunco - População\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 2:    
+                    printf("Área - Primeira Carta: %f - Segunda Carta: %f\n", area1, area2);
+                    if(area1 > area2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(area1 < area2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = area1 + super1;
+                    resultado2 = area2 + super2;
+                    printf("\nAtributos escolhidos: Super Trunco - Área\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }                
+                case 3:
+                    printf("Densidade demográfica - Primeira Carta: %f - Segunda Carta: %f\n", densidade1, densidade2);
+                    if(densidade1 < densidade2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(densidade1 > densidade2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = densidade1 + super1;
+                    resultado2 = densidade1 + super2;
+                    printf("\nAtributos escolhidos: Super Trunco - Densidade demográfica\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 4:
+                    printf("PIB - Primeira Carta: %f - Segunda Carta: %f\n", pib1, pib2);
+                    if(pib1 > pib2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(pib1 < pib1) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = super1 + pib1;
+                    resultado2 = super2 + pib2;
+                    printf("\nAtributos escolhidos: Super Trunco - PIB\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 5:
+                    printf("PIB per capita - Primeira Carta: %f - Segunda Carta: %f\n", pibCapita1, pibCapita2);
+                    if(pibCapita1 > pibCapita2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(pibCapita1 < pibCapita2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = pibCapita1 + super1;
+                    resultado2 = pibCapita2 + super2;
+                    printf("\nAtributos escolhidos: Super Trunco - PIB per capita \n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                case 6:
+                    printf("Número de pontos turísticos - Primeira Carta: %d - Segunda Carta: %d\n", pontosTuristicos1, pontosTuristicos2);
+                    if(pontosTuristicos1 > pontosTuristicos2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(pontosTuristicos1 < pontosTuristicos2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    resultado1 = pontosTuristicos1 + super1;
+                    resultado2 = pontosTuristicos2 + super2;
+                    printf("\nAtributos escolhidos: Super Trunco - Número de pontos turísticos\n");
+                    printf("\nSoma de cada atributo - Primeira carta: %.1f - Segunda Carta: %.1f\n", resultado1, resultado2);
+                    if(resultado1 > resultado2) {
+                        printf("A primeira carta ganhou!\n");
+                    } else if(resultado1 < resultado2) {
+                        printf("A segunda carta ganhou!\n");
+                    } else {
+                        printf("Empate!\n");
+                    }
+                    break;
+                default:
+                    printf("Opção inválida\n");
+                    break;
             }
             break;
         default:
